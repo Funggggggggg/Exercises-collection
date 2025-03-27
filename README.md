@@ -1,2 +1,2 @@
-# homework-collection 
-存放基礎的小練習
+# Exercises-collection
+存放基礎練習
