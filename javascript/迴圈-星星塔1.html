@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星星塔1</title>
+</head>
+<body>
+    <script>
+        const input = prompt("請輸入一個數字")
+
+        // 倒星星 1
+        for(let i = input ; i >= 1; i--) {
+            for(let j = i - 1 ; j >= 0; j--) {
+                document.write('☆')
+            }
+            document.write('<br>')
+        }
+
+        // 倒星星 2
+        for(let i = 1 ; i <= input; i++) {
+            for(let j = i ; j <= input ; j++) {
+                document.write('☆')
+            }
+            document.write('<br>')
+        }
+        // j <= input，代表星星會印到 input 為止
+
+        // 正星星
+        for(let i = 1 ; i <= input; i++) {
+            for(let j = 1 ; j <= i ; j++) {
+                document.write('☆')
+            }
+            document.write('<br>')
+        }
+    </script>
+</body>
+</html>
