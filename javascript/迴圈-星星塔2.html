@@ -6,6 +6,41 @@
     <title>星星塔2</title>
 </head>
 <body>
-    
+    <script>
+        const input = prompt("輸入一個數字")
+        // const input = 5
+        for(let i = 1; i <= input; i++ ) {
+            for(let j = i; j < input ; j++ ) {
+                document.write('☆')
+            }
+            for(let k = i; k >= 1 ; k-- ) {
+                document.write('★')
+            }
+            for(let m = i; m > 1 ; m-- ) {
+                document.write('★')
+            }
+            for(let l = i; l < input ; l++ ) {
+                document.write('☆')
+            }
+            document.write('<br>')
+        }
+
+        // 印出菱形
+        for(let a = 2; a <= input; a++ ) {
+            for(let b = a; b > 1 ; b-- ) {
+                document.write('☆')
+            }
+            for(let c = a; c < input ; c++ ) {
+                document.write('★')
+            }
+            for(let d = a; d <= input ; d++ ) {
+                document.write('★')
+            }
+            for(let e = a; e > 1 ; e-- ) {
+                document.write('☆')
+            }
+            document.write('<br>')
+        }
+    </script>
 </body>
 </html>
