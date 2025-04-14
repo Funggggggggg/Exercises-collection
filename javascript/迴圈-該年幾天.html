@@ -6,6 +6,44 @@
     <title>該年幾天</title>
 </head>
 <body>
+    <!-- 作業
     
+    使用者可以輸入西元年、月、日，三個 prompt()
+    顯示使用者輸入的是該年的第幾天
+    
+    以 3/5 為例，將前兩個月的天數加起來，再加上 5 天即可
+    需考慮閏年 +1
+    某些月份的天數是 30，某些月份的天數是 31
+    parseInt(變數或是數字的文字) 可以把文字轉數字 -->
+
+    <script>
+        const year = parseInt(prompt("請輸入西元年"))
+        const month = parseInt(prompt("請輸入月份"))
+        const date = parseInt(prompt("請輸入日期"))
+
+        let count = 0
+        
+        // (該月 - 1) 累加前面的天數，同時判斷當年的 2 月份有幾天
+        // year 可被 4 整除 但不可被 100 整除，或可被 400 整除
+        // 再加上該月的天數
+        for (let i = 1; i < month ; i++) {
+                if ( (i === 1) || ( i === 3) || (i === 5) || (i === 1) || (i === 7) || (i === 8) || (i === 10) || (i === 12) ) {
+                    // ❌ i 的各種邏輯判斷錯誤 => 使用 .includes() 更好
+                    count += 31
+                } else if (( i === 2 ) && ((year % 4 === 0) && ( year % 100 !== 0 )) && (year % 400 === 0 )) {
+                    count += 29
+                } else if ( i === 2 ) {
+                    count += 28
+                } else if ( (i === 1) || (i === 4) || (i === 6) || (i === 9) || (i === 11) ) {
+                    count += 30 
+                }
+            }
+        // 1.❌ 邏輯錯誤 count = count + date
+        // 2.❌ 順序錯誤 迴圈後再加上日期，不能放在迴圈前
+        let total = count + date
+        console.log(total)
+        document.write(`今天是 ${year} 年的第 ${total} 天`)
+
+    </script>
 </body>
 </html>
