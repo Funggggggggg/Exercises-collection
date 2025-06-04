@@ -3,9 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>氣溫</title>
+    <!-- 
+        練習二維陣列
+        下表為某地 星期一到星期四的 時段一、時段二與時段三的氣溫
+
+                星期一	星期二	星期三	星期四
+        時段一	18.2	17.3	15.0	13.4
+        時段二	23.8	25.1	20.6	17.8
+        時段三	20.6	21.5	18.4	15.7
+
+        請將上表的內容設定成二維陣列，並依序完成下列各題
+
+        - 將陣列內容印出成表格
+        - 每日的平均溫度
+        - 時段一、時段二、時段三的平均氣溫
+        - 溫度最高的日子與時段
+        - 溫度最低的日子與時段
+    -->
 </head>
 <body>
-    
+    <h1>氣溫</h1>
+    <p>
+        練習二維陣列 <br>
+    </p>
+    <hr>
+    <script>
+        const temperatures = [
+            [18.2, 17.3, 15.0, 13.4], // 時段一
+            [23.8, 25.1, 20.6, 17.8], // 時段二
+            [20.6, 21.5, 18.4, 15.7]  // 時段三
+        ];
+        
+        document.write('<table border="1">')
+            let mondayTemp = 0
+            let tuesdayTemp = 0
+            let wednesdayTemp = 0
+            let thursdayTemp = 0
+
+            let periodTotle = [0, 0, 0]
+            let maxTemp = temperatures[0][0]
+            let minTemp = temperatures[0][0]
+            let maxTempSite = temperatures[0, 0]
+            let minTempSite = temperatures[0, 0]
+            for (let i = 0; i < temperatures.length; i++) {
+                // document.write(temperatures[i] + '<br>')
+                document.write('<tr>')
+                    for (let j = 0; j < temperatures[i].length; j++) {
+                        document.write('<td>' + temperatures[i][j] + '</td>')
+                        periodTotle[i] += temperatures[i][j]
+                        
+                        if (temperatures[i][j] > maxTemp) {
+                            maxTemp = temperatures[i][j]
+                            maxTempSite = `星期 ${i + 1} 的時段 ${j + 1}`
+                        }
+                        if (temperatures[i][j] < minTemp) {
+                            minTemp = temperatures[i][j]
+                            minTempSite = `星期 ${i + 1} 的時段 ${j + 1}`
+                        }
+                    }
+                    // 計算每一天的總和
+                    mondayTemp += temperatures[i][0]
+                    tuesdayTemp += temperatures[i][1]
+                    wednesdayTemp += temperatures[i][2]
+                    thursdayTemp += temperatures[i][3]
+                    document.write('</tr>')
+                    document.write(`時段 ${i + 1} 的平均是 ${periodTotle[i] / temperatures[i].length} <br>`)
+                }
+                document.write('<hr>')
+                document.write(`星期一的平均溫度是${(mondayTemp / temperatures.length).toFixed(1)}度 <br>`)
+                document.write(`星期二的平均溫度是${(tuesdayTemp / temperatures.length).toFixed(1)}度 <br>`)
+                document.write(`星期三的平均溫度是${(wednesdayTemp / temperatures.length).toFixed(1)}度 <br>`)
+                document.write(`星期四的平均溫度是${(thursdayTemp / temperatures.length).toFixed(1)}度 <br>`)
+                document.write('<hr>')
+                document.write(`最高氣溫是 ${maxTempSite}，是 ${ maxTemp }度<br>`)
+                document.write(`最低氣溫是 ${minTempSite}，是 ${ minTemp }度<br>`)
+                document.write('<hr>')
+        document.write('</table>')
+    </script>
 </body>
 </html>
