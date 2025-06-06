@@ -4,8 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- 
+    小明喜歡數數
+    某天媽媽請他從 n 開始數，下一個數字是 n+1，再下一個數字是 n+2，以此類推
+    媽媽想知道，小明數了多少個數字後，數過的數字總和會超過 m
+
+    請寫一個程式，使用者可以用 prompt 輸入 n 和 m
+    請將兩個數字傳入 function 計算後將結果回傳
+    -->
 </head>
 <body>
-    
+    <script>
+        const number1 = parseInt(prompt('請輸入一個小的數字為 n'))
+        const number2 = parseInt(prompt('請輸入一個大的數字為 m'))
+        const calculate = (n, m) => {
+            let sum = 0
+            let count = 0
+            while (sum <= m) {
+                sum += n + count
+                count++
+            }
+            return {sum, count}
+        }
+        calculate()
+        
+        console.log(calculate(number1, number2))
+        // => 當執行 calculate(number1, number2) 時，就是把值傳進去。
+        
+        const result = calculate(number1, number2)
+        console.log(result)
+        console.log(`小明從 n 數 ${number1} 開始數，數了 ${ result.count } 次，數字總和 ${ result.sum } 會超過 m 數 ${ number2 }`)
+    </script>
 </body>
 </html>
