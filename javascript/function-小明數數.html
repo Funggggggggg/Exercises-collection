@@ -18,7 +18,7 @@
         const number1 = parseInt(prompt('請輸入一個小的數字為 n'))
         const number2 = parseInt(prompt('請輸入一個大的數字為 m'))
         const calculate = (n, m) => {
-            let sum = 0
+            let sum = 0         // => function 會用到的變數就放在 function 裡面
             let count = 0
             while (sum <= m) {
                 sum += n + count
@@ -26,7 +26,7 @@
             }
             return {sum, count}
         }
-        calculate()
+        // calculate() // => 是沒有傳參數的呼叫，但 calculate 是一個需要 n, m 參數的函式，所以這行沒有必要
         
         console.log(calculate(number1, number2))
         // => 當執行 calculate(number1, number2) 時，就是把值傳進去。
@@ -34,6 +34,18 @@
         const result = calculate(number1, number2)
         console.log(result)
         console.log(`小明從 n 數 ${number1} 開始數，數了 ${ result.count } 次，數字總和 ${ result.sum } 會超過 m 數 ${ number2 }`)
+
+        // ----------------------------------------------------------------------------------------------------------------------
+        // 老師的寫法
+        const calculatee = (n, m) => {
+            let sum = 0            //數過的總和
+            let count = 0          //次數
+            while (sum <= m) {
+                sum += n           //總和 + 目前數到的數字 ( 第一次沒有加 1 )
+                n++                //每次數字加 1 
+                count++            //每次次數加 1
+            }
+        }
     </script>
 </body>
 </html>
