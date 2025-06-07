@@ -29,18 +29,26 @@
 </head>
 <body>
     <script>
+        const number1 = parseInt(prompt('易經數字卦占卜。第一個數字(10-1000)'))
+        const number2 = parseInt(prompt('第二個數字(10-1000)'))
+        const number3 = parseInt(prompt('第三個數字(10-1000)'))
         const gua = (array) => {
-          // ... 在此寫你的程式碼
+            Bagua = [ '坤卦', '乾卦', '兌卦', '離卦', '震卦', '巽卦', '坎卦', '艮卦']
+            const oneNum = Bagua[number1 % 8]
+            const twoNum = Bagua[number2 % 8]
+            const threeNum = number3 % 6 || 6 // 如果除以 6 的餘數為 0，則取 6
+
+            array = [oneNum, twoNum, threeNum]
+            return array 
         }
+        gua()
         
-        const number1 = parseInt(prompt('第一個數字'))
-        const number2 = parseInt(prompt('第二個數字'))
-        const number3 = parseInt(prompt('第三個數字'))
         const numbers = [number1, number2, number3]
         const result = gua(numbers)
-        console.log(result[0]) // 輸出 離
-        console.log(result[1]) // 輸出 震
-        console.log(result[2]) // 輸出 2
+        document.write(`下卦為 ${result[0]} <br>`)
+        document.write(`上卦為 ${result[1]} <br>`)
+        document.write(`第 ${result[2]} 爻 <br>`)
+
     </script>
 </body>
 </html>
